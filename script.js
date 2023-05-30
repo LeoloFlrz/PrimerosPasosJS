@@ -16,6 +16,91 @@ var nombres = ["Leolo", "Alex", "Miguel", "Julia", "Jose", "Cristina", "Manuel",
 let textoMinusculas = "ESTO ES UN TEXTO TRANSFORMADO A MINÚSCULAS"
 let textoMayusculas = "esto es un texto transformado a mayúsculas"
 
+
+let animal1 = {
+    id: 1,
+    name: "perro",
+    status: "activo",
+    species: "cánidos",
+    type: "boxer",
+    gender: "macho"
+}
+let animal2 = {
+    id: 2,
+    name: "gato",
+    status: "activo",
+    species: "felinos",
+    type: "naranja",
+    gender: "hembra"
+}
+let animal3 = {
+    id: 3,
+    name: "hámster",
+    status: "activo",
+    species: "cricétidos",
+    type: "roborowski",
+    gender: "hembra"
+}
+let animal4 = {
+    id: 4,
+    name: "serpiente",
+    status: "activo",
+    species: "vipéridos",
+    type: "víbora",
+    gender: "macho"
+}
+let animal5 = {
+    id: 5,
+    name: "tigre",
+    status: "extinto",
+    species: "felinos",
+    type: "de java",
+    gender: "macho"
+}
+let animal6 = {
+    id: 6,
+    name: "elefante",
+    status: "activo",
+    species: "mammalia",
+    type: "africano",
+    gender: "hembra"
+}
+let animal7 = {
+    id: 7,
+    name: "tiburón",
+    status: "extinto",
+    species: "acuático",
+    type: "megalodón",
+    gender: "macho"
+}
+let animal8 = {
+    id: 8,
+    name: "ballena",
+    status: "activo",
+    species: "cetácea",
+    type: "jorobada",
+    gender: "hembra"
+}
+let animal9 = {
+    id: 9,
+    name: "león",
+    status: "activo",
+    species: "felino",
+    type: "africano",
+    gender: "macho"
+}
+let animal10 = {
+    id: 10,
+    name: "jirafa",
+    status: "vulnerable",
+    species: "camelopardallis",
+    type: "común",
+    gender: "hembra"
+}
+
+let animalArray = [animal1, animal2, animal3, animal4, animal5, animal6, animal7, animal8, animal9, animal10]
+
+
 let coche = {
     brand: 'Ford',
     model: 'Fiesta',
@@ -25,7 +110,6 @@ let coche = {
         firstModel : 120,
         secondModel : 200
     }
-
 }
 
 function imprimirNombres() {
@@ -146,9 +230,6 @@ function printNumbers(){
     return textoBucle
 }
 
-
-
-
 function comprobarPares() {
     if(resultadoMultiplicacion % 2 === 0) {
         textoPar = "El resultado es Par"
@@ -157,6 +238,71 @@ function comprobarPares() {
     }
     return textoPar;
 }
+
+document.getElementById('buttonMessage').onclick = function(){
+    alert('Hola, le has dado click a este botón');
+}
+
+let botonElement = document.getElementById("buttonClicks");
+let pElement = document.getElementById("countArea");
+let contador = 0;
+botonElement.onclick = function () {
+    contador++;
+    pElement.textContent = "Cantidad de clicks :"+contador;
+}
+
+
+function genera_tabla() {
+    let body = document.getElementsByTagName("body")[0];
+  
+    let tabla = document.createElement("table");
+    let tblBody = document.createElement("tbody");
+  
+    for (var i = 0; i < animalArray.length; i++) {
+      let animal = animalArray[i];
+      let hilera = document.createElement("tr");
+  
+      let idCelda = document.createElement("td");
+      let idTexto = document.createTextNode(animal.id);
+      idCelda.appendChild(idTexto);
+      hilera.appendChild(idCelda);
+  
+      let nameCelda = document.createElement("td");
+      let nameTexto = document.createTextNode(animal.name);
+      nameCelda.appendChild(nameTexto);
+      hilera.appendChild(nameCelda);
+  
+      let statusCelda = document.createElement("td");
+      let statusTexto = document.createTextNode(animal.status);
+      statusCelda.appendChild(statusTexto);
+      hilera.appendChild(statusCelda);
+  
+      let speciesCelda = document.createElement("td");
+      let speciesTexto = document.createTextNode(animal.species);
+      speciesCelda.appendChild(speciesTexto);
+      hilera.appendChild(speciesCelda);
+  
+      let typeCelda = document.createElement("td");
+      let typeTexto = document.createTextNode(animal.type);
+      typeCelda.appendChild(typeTexto);
+      hilera.appendChild(typeCelda);
+  
+      let genderCelda = document.createElement("td");
+      let genderTexto = document.createTextNode(animal.gender);
+      genderCelda.appendChild(genderTexto);
+      hilera.appendChild(genderCelda);
+  
+      tblBody.appendChild(hilera);
+    }
+  
+    tabla.appendChild(tblBody);
+  
+    body.appendChild(tabla);
+  
+    tabla.setAttribute("border", "1");
+  }
+  
+
 
 
 
